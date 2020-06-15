@@ -1,0 +1,7 @@
+<h1><%= @dispatch.title %></h1><br><br>
+
+<h2><%= @dispatch.description %></h2><br><br>
+
+
+<%= button_to "Edit", edit_dispatch_path, method: "get" %>
+<%= button_to "Delete", dispatch_path(@dispatch), { method: "delete", data: {confirm: 'Are you sure?', disable_with: "Processing..."} }  %>

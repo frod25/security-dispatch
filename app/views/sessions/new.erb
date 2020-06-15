@@ -1,0 +1,13 @@
+<h1>Login</h1>
+
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+    <%= f.label :username, "Username:" %>
+    <%= f.text_field :username, required: true, placeholder: "username" %><br>
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password, required: true, placeholder: "password" %><br>
+    <%= f.button "Login" %> 
+<% end %>

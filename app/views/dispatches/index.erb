@@ -1,0 +1,10 @@
+<h1>Security Dispatch</h1><br><br>
+<ol>
+<% @dispatches.each do |dispatch| %>
+    <% if dispatch.url == nil %>       
+       <li><%= link_to dispatch.title, dispatch_path(dispatch) %></li>
+    <% else %>
+        <li><%= link_to dispatch.title, dispatch.url %></li>
+    <% end %>   
+<% end %>
+</ol>

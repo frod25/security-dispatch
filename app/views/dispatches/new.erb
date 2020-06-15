@@ -1,0 +1,17 @@
+<h1>New Dispatch</h1><br>
+
+<% if flash[:errors] %>
+    <%= flash[:errors] %>
+<% end %>
+
+<%= form_for @dispatch do |f| %>
+    <%= f.label :title, "Title:" %><br>
+    <%= f.text_field :title, required: true, placeholder: "title" %><br>
+    <%= f.label :description, "Description:" %><br>
+    <%= f.text_area :description, required: true, placeholder: "description" %><br>
+    <%= f.label :url, "Url (optional):" %><br>
+    <%= f.text_field :url, placeholder: "url" %><br>
+    <%= f.hidden_field(:user_id, :value => current_user.id) %>
+    <%= f.button "Dispatch" %>
+    
+<% end %>
