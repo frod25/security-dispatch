@@ -2,13 +2,13 @@
 
 <%= form_for @user do |f| %>
     <%= f.label :username, "Username:" %>
-    <%= f.text_field :username, required: true, minlength: 3, placeholder: "username" %><br>
+    <%= f.text_field :username, required: true, minlength: 3 %><br>
     <%= f.label :email, "Email:" %>
-    <%= f.text_field :email, placeholder: "email" %><br>
+    <%= f.text_field :email %><br>
     <%= f.label :password, "Password:" %>
-    <%= f.password_field :password, required: true, minlength: 8, placeholder: "password" %><br>
+    <%= f.password_field :password, required: true, minlength: 8 %><br>
     <%= f.label :password_confirmation, "Confirm Password:" %>
-    <%= f.password_field :password_confirmation, required: true, minlength: 8, placeholder: "password" %><br>
+    <%= f.password_field :password_confirmation, required: true, minlength: 8 %><br>
     <%= f.button "Register" %>
     
 <% end %>

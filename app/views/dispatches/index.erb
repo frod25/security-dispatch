@@ -2,9 +2,9 @@
 <ol>
 <% @dispatches.each do |dispatch| %>
     <% if dispatch.url == nil %>       
-       <li><%= link_to dispatch.title, dispatch_path(dispatch) %></li>
+       <li><h4><%= link_to dispatch.title, dispatch_path(dispatch) %></h4></li>
     <% else %>
-        <li><%= link_to dispatch.title, dispatch.url %></li>
+        <li><h4><%= link_to dispatch.title, dispatch.url %></h4></li>
     <% end %>   
 <% end %>
 </ol>

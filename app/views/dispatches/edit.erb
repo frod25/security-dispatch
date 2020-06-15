@@ -1,12 +1,3 @@
 <h1> Edit Dispatch </h1>
 
-<%= form_for @dispatch, method: "patch" do |f| %>
-    <%= f.label :title, "Title:" %><br>
-    <%= f.text_field :title, required: true %><br>
-    <%= f.label :description, "Description:" %><br>
-    <%= f.text_area :description, required: true %><br>
-    <%= f.label :url, "Url (optional):" %><br>
-    <%= f.text_field :url %><br>
-    <%= f.hidden_field(:user_id, :value => current_user.id) %>
-    <%= f.button "Edit Dispatch" %>
-<% end %>
+<%= render "form" %>
