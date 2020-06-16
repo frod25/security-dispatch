@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ 
+ .container {
+     
+     margin: 2em;
+     grid-template-columns: 100%;
+    }
+    
+.header {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-areas: "nav empty user_nav";
+}
+
+.nav {
+    grid-area: nav;
+}
+
+.user_nav {
+    grid-area: user_nav;
+}
+
+.body {
+    display: grid;
+}
+
+

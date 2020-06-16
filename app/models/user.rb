@@ -5,6 +5,6 @@ class User < ApplicationRecord
     
     has_many :comments
     has_many :dispatches
-    has_many :dispatches, through: :comments
-    has_many :comments, through: :dispactches
+    # has_many :dispatches, through: :comments
+    # has_many :comments, through: :dispatches
 end

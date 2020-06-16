@@ -1,3 +1,4 @@
+
 <h1><%= @user.username %>'s Profile</h1>
 
 <%= form_for @user do |f| %>
@@ -9,7 +10,17 @@
     <%= f.number_field :age %><br>
     <%= f.label :location, "location:" %>
     <%= f.text_field :location %><br>
-    
-    <%= f.button "Edit Profile" %>
-    
+    <%= f.button "Edit Profile" %>    
 <% end %>
+
+
+
+<h1><%= @user.username %>'s Dispatches</h1>
+<% @user_dispatches.each do |dispatch| %>  
+    <% if dispatch.url == nil %>       
+        <h4><%= link_to dispatch.title, dispatch_path(dispatch) %></h4>
+    <% else %>
+       <h4><%= link_to dispatch.title, dispatch.url %></h4>
+    <% end %>    
+<% end %>
+
