@@ -6,9 +6,8 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: login_params[:username])
     if user && user.authenticate(login_params[:password])
-      # byebug
       login(user)
-      redirect_to "/", notice: "Logged In"
+      redirect_to root_path, notice: "Logged in as "
     else
       flash[:notice] = "Username / Password combination invalid"
       render :new
@@ -17,7 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to "/", notice: "Logged Out"
+    redirect_to root_path, notice: "Logged Out"
   end
 
   private

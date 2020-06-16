@@ -7,10 +7,12 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.save 
-            redirect_to "/"
+        if @user.save
+            login(@user) 
+            redirect_to root_path
         else 
-            render :new
+            redirect_to new_user_path
+            flash[:user_create_msg] = @user.errors.full_messages
         end
     end
 
@@ -20,10 +22,29 @@ class UsersController < ApplicationController
         render :show
     end
 
+    def update 
+        user = User.find(params[:id])
+        if current_user.id == user.id
+            user.update(update_params)
+            redirect_to user_path(user)
+            flash[:message] = "Profile has been updated."
+        else
+            flash[:message] = "Current user cannot edit this profile."
+            redirect_to user_path(user)
+        end
+    end
+        
+
     
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password, :password_confirmation)
+        params.require(:user).permit(:username, :email, :password, :password_confirmation, :age, :location)
     end
+
+    def update_params 
+        params.delete(:password)
+        params.delete(:password_confirmation)
+        params.require(:user).permit(:username, :email, :age, :location)
+    end 
 end

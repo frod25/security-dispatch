@@ -2,6 +2,11 @@
 
 <h2><%= @dispatch.description %></h2><br><br>
 
+<% if current_user && current_user.id == @dispatch.user_id %>
+    <%= button_to "Edit", edit_dispatch_path, method: "get" %>
+    <%= button_to "Delete", dispatch_path(@dispatch), { method: "delete", data: {confirm: 'Are you sure?', disable_with: "Processing..."} }  %>
+<% end %>
 
-<%= button_to "Edit", edit_dispatch_path, method: "get" %>
-<%= button_to "Delete", dispatch_path(@dispatch), { method: "delete", data: {confirm: 'Are you sure?', disable_with: "Processing..."} }  %>
+<% if flash[:message] %>
+    <h3><%= flash[:message] %></h3>
+<% end %>

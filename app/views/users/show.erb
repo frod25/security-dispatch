@@ -1,19 +1,27 @@
 
 <h1><%= @user.username %>'s Profile</h1>
 
-<%= form_for @user do |f| %>
-    <%= f.label :username, "Username:" %>
-    <%= f.text_field :username, required: true, minlength: 3 %><br>
-    <%= f.label :email, "Email:" %>
-    <%= f.text_field :email %><br>
-    <%= f.label :age, "age:" %>
-    <%= f.number_field :age %><br>
-    <%= f.label :location, "location:" %>
-    <%= f.text_field :location %><br>
-    <%= f.button "Edit Profile" %>    
+<% if current_user.id == @user.id %>
+    <%= form_for @user, method: "patch" do |f| %>
+        <%= f.label :username, "Username:" %>
+        <%= f.text_field :username, required: true, minlength: 3 %><br>
+        <%= f.label :email, "Email:" %>
+        <%= f.text_field :email %><br>
+        <%= f.label :age, "age:" %>
+        <%= f.number_field :age %><br>
+        <%= f.label :location, "location:" %>
+        <%= f.text_field :location %><br>
+        <%= f.button "Update Profile" %>    
+    <% end %>
+<% else %>
+    <h5>Email: <%= @user.email %></h5><br>
+    <h5>Age: <%= @user.age %></h5><br>
+    <h5>Location: <%= @user.location %></h5><br>
 <% end %>
 
-
+<% if flash[:message] %>
+    <h5><%= flash[:message] %></h5>
+<% end %>
 
 <h1><%= @user.username %>'s Dispatches</h1>
 <% @user_dispatches.each do |dispatch| %>  

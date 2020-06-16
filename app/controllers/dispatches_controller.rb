@@ -34,11 +34,15 @@ class DispatchesController < ApplicationController
 
     def update
         dispatch = Dispatch.find(params[:id])
-        dispatch.assign_attributes(dispatch_params)
-        dispatch.full_url
-        dispatch.save
-        redirect_to dispatch_path(dispatch)
-        
+        if current_user.id == dispatch.user_id
+            dispatch.assign_attributes(dispatch_params)
+            dispatch.full_url
+            dispatch.save
+            redirect_to dispatch_path(dispatch)
+        else
+            flash[:message] = "Current user cannot edit dispatch."
+            redirect_to dispatch_path(dispatch)
+        end
     end
 
     def destroy
