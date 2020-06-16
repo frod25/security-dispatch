@@ -6,6 +6,10 @@
     <% else %>
         <li><h4><%= link_to dispatch.title, dispatch.url %></h4></li>
     <% end %> 
-       <p>posted by: <%= link_to dispatch.user.username, user_path(dispatch.user) %></p>
+    <% if logged_in? %>
+        <%= button_to "upvote (#{dispatch.upvotes})", upvote_path(dispatch), method: "post" %>
+        <%= button_to "downvote (#{dispatch.downvotes})", downvote_path(dispatch), method: "post" %>
+    <% end %>
+    <p><%= pluralize(dispatch.points, 'point') %> posted by: <%= link_to dispatch.user.username, user_path(dispatch.user) %></p>
 <% end %>
 </ol>

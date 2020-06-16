@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_144305) do
+ActiveRecord::Schema.define(version: 2020_06_16_203319) do
 
   create_table "comments", force: :cascade do |t|
     t.text "message"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2020_06_15_144305) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "points", default: 1
+    t.float "score", default: 0.0
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +41,17 @@ ActiveRecord::Schema.define(version: 2020_06_15_144305) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "dispatch_id", null: false
+    t.integer "upvote", default: 0
+    t.integer "downvote", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dispatch_id"], name: "index_votes_on_dispatch_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
+  add_foreign_key "votes", "dispatches"
+  add_foreign_key "votes", "users"
 end

@@ -1,14 +1,14 @@
 class DispatchesController < ApplicationController
 
     def index
-        @dispatches = Dispatch.all.reverse
+        @dispatches = Dispatch.best_scores
         render :index
     end
     
     def show
-        @dispatch = Dispatch.find(params[:id])
+        @dispatch = get_dispatch
         @comment = Comment.new
-        @user = User.find(@dispatch.user_id)
+        @user = @dispatch.user
         render :show
     end
 
@@ -30,12 +30,12 @@ class DispatchesController < ApplicationController
     end
 
     def edit
-        @dispatch = Dispatch.find(params[:id])
+        @dispatch = get_dispatch
         render :edit
     end
 
     def update
-        dispatch = Dispatch.find(params[:id])
+        dispatch = get_dispatch
         if current_user.id == dispatch.user_id
             dispatch.assign_attributes(dispatch_params)
             dispatch.full_url
@@ -48,12 +48,44 @@ class DispatchesController < ApplicationController
     end
 
     def destroy
-        Dispatch.find(params[:id]).destroy
+        get_dispatch.destroy
+        redirect_to root_path
+    end
+
+    def upvote
+        dispatch = get_dispatch
+        if current_user.upvoted?(dispatch)
+            current_user.remove_vote(dispatch)
+        elsif current_user.downvoted?(dispatch)
+            current_user.remove_vote(dispatch)
+            current_user.upvote(dispatch)
+        else
+            current_user.upvote(dispatch)
+        end
+        dispatch.calc_score
+        redirect_to root_path
+    end
+
+    def downvote
+        dispatch = get_dispatch
+        if current_user.downvoted?(dispatch)
+            current_user.remove_vote(dispatch)
+        elsif current_user.upvoted?(dispatch)
+            current_user.remove_vote(dispatch)
+            current_user.downvote(dispatch)
+        else
+            current_user.downvote(dispatch)
+        end
+        dispatch.calc_score
         redirect_to root_path
     end
 
     private
     def dispatch_params
         params.require(:dispatch).permit(:title, :description, :url, :user_id)
+    end
+
+    def get_dispatch
+        Dispatch.find(params[:id])
     end
 end

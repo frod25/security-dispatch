@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   get "/", to: 'dispatches#index', as: 'root'
   get "/login", to: 'sessions#new', as: 'login'
   get "/register", to: 'users#new', as: 'register'
+
+  post "/dispatch/:id/upvote", to: "dispatches#upvote", as: 'upvote'
+  post "/dispatch/:id/downvote", to: "dispatches#downvote", as: 'downvote'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
