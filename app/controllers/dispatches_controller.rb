@@ -7,6 +7,8 @@ class DispatchesController < ApplicationController
     
     def show
         @dispatch = Dispatch.find(params[:id])
+        @comment = Comment.new
+        @user = User.find(@dispatch.user_id)
         render :show
     end
 

@@ -1,0 +1,7 @@
+<h1>Comments</h1>
+
+<% @comments.each do |comment| %>
+    <ul>
+    <li><%= link_to comment.message, dispatch_path(comment.dispatch_id) %></li>
+    </ul>
+<% end %>

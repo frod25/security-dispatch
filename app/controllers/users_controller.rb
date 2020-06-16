@@ -12,7 +12,7 @@ class UsersController < ApplicationController
             redirect_to root_path
         else 
             redirect_to new_user_path
-            flash[:user_create_msg] = @user.errors.full_messages
+            flash[:alert] = @user.errors.full_messages
         end
     end
 

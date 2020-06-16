@@ -1,5 +1,5 @@
-<h1><%= @dispatch.title %></h1><br><br>
-
+<h1><%= @dispatch.title %></h1>  
+<h4>posted by: <%= link_to @user.username, user_path(@user) %></h4>
 <h2><%= @dispatch.description %></h2><br><br>
 
 <% if current_user && current_user.id == @dispatch.user_id %>
@@ -9,4 +9,20 @@
 
 <% if flash[:message] %>
     <h3><%= flash[:message] %></h3>
+<% end %>
+
+<%= form_for @comment do |f| %>
+    <%= f.label :message, "Comment: " %>
+    <%= f.text_area :message, required: true %>
+    <%= f.hidden_field(:user_id, :value => current_user.id) %>
+    <%= f.hidden_field(:dispatch_id, :value => @dispatch.id) %>
+    <%= f.button "Submit" %>
+<% end %>
+
+<% @dispatch.comments.each do |comment| %>
+    <%= comment.message %> | 
+    <%= link_to User.find(comment.user_id).username, user_path(comment.user_id) %><br> 
+    <% if current_user && current_user.id == comment.user_id %>
+        <%= button_to "Edit", edit_comment_path(comment), method: "get" %><%= button_to "Delete", comment_path(comment), { method: "delete", data: {confirm: 'Are you sure?', disable_with: "Processing..."} }  %>
+    <% end %>
 <% end %>

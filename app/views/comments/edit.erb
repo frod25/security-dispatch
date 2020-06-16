@@ -1,0 +1,13 @@
+<h1>Edit Comment</h1>
+
+<% if current_user && current_user.id == @comment.user_id %>
+    <%= form_for @comment, method: "patch" do |f| %>
+        <%= f.label :message, "Comment: " %>
+        <%= f.text_area :message, required: true %><br>
+        <%= f.hidden_field(:user_id, :value => current_user.id) %>
+        <%= f.hidden_field(:dispatch_id, :value => @dispatch.id) %>
+        <%= f.button "Submit" %>
+    <% end %>
+<% else %>
+        <h2>Cannot edit this comment</h2>
+<% end %>

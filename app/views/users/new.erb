@@ -1,7 +1,7 @@
 <h1>Create a new account!</h1>
 
-<% if flash[:user_create_msg] %>
-    <h5 style="color:red;"><%= flash[:user_create_msg] %></h5>
+<% if flash[:alert] %>
+    <h5 style="color:red;"><%= flash[:alert] %></h5>
 <% end %>
 
 <%= form_for @user do |f| %>

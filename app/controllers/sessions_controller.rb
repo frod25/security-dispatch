@@ -7,16 +7,18 @@ class SessionsController < ApplicationController
     user = User.find_by(username: login_params[:username])
     if user && user.authenticate(login_params[:password])
       login(user)
-      redirect_to root_path, notice: "Logged in as "
+      redirect_to root_path
+      flash[:notice] = "Logged in as #{current_user.username}."
     else
-      flash[:notice] = "Username / Password combination invalid"
-      render :new
+      flash[:notice] = "Login Failed.. Try Again"
+      redirect_to new_session_path
     end
   end
 
   def destroy
     logout
-    redirect_to root_path, notice: "Logged Out"
+    redirect_to root_path
+    flash[:notice] = "Logged Out"
   end
 
   private
