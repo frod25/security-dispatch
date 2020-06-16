@@ -5,6 +5,7 @@
        <li><h4><%= link_to dispatch.title, dispatch_path(dispatch) %></h4></li>
     <% else %>
         <li><h4><%= link_to dispatch.title, dispatch.url %></h4></li>
-    <% end %>   
+    <% end %> 
+       <p>posted by: <%= link_to dispatch.user.username, user_path(dispatch.user) %></p>
 <% end %>
 </ol>

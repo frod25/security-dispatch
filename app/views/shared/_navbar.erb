@@ -5,8 +5,8 @@
 
 <nav class="user_nav">
     <% unless logged_in? %>
-        <%= link_to "Register", new_user_path %> | 
-        <%= link_to "Login", new_session_path %>
+        <%= link_to "Register", register_path %> | 
+        <%= link_to "Login", login_path %>
     <% end %>
 
     <% if logged_in? %>

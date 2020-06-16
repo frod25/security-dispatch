@@ -33,8 +33,17 @@ class UsersController < ApplicationController
             redirect_to user_path(user)
         end
     end
-        
 
+    def destroy
+        user = User.find(params[:id])
+        if current_user.id == user.id
+            user.destroy
+            redirect_to root_path
+        else
+            redirect_to user_path(user)
+            flash[:message] = "Try and delete your own account instead."
+        end
+    end
     
     private
 

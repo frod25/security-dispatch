@@ -1,7 +1,7 @@
 class DispatchesController < ApplicationController
 
     def index
-        @dispatches = Dispatch.all
+        @dispatches = Dispatch.all.reverse
         render :index
     end
     

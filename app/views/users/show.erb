@@ -13,6 +13,7 @@
         <%= f.text_field :location %><br>
         <%= f.button "Update Profile" %>    
     <% end %>
+    <%= button_to "Delete", user_path(@user), { method: "delete", data: {confirm: 'Are you sure?', disable_with: "Processing..."} }  %>
 <% else %>
     <h5>Email: <%= @user.email %></h5><br>
     <h5>Age: <%= @user.age %></h5><br>

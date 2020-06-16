@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 9b0c36987067f9db792dbb30e4d4322bb3a66157
+  branch: master
+  specs:
+    faker (2.12.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -45,6 +53,7 @@ GEM
     activerecord (6.0.3.1)
       activemodel (= 6.0.3.1)
       activesupport (= 6.0.3.1)
+    activerecord-reset-pk-sequence (0.2.1)
     activestorage (6.0.3.1)
       actionpack (= 6.0.3.1)
       activejob (= 6.0.3.1)
@@ -227,10 +236,12 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
+  activerecord-reset-pk-sequence
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  faker!
   jbuilder (~> 2.7)
   listen (~> 3.2)
   puma (~> 4.1)
