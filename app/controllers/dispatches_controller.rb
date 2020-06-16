@@ -25,7 +25,7 @@ class DispatchesController < ApplicationController
             redirect_to dispatch_path(dispatch)
         else
             flash[:errors] = dispatch.errors.full_messages
-            render :new
+            render :new 
         end
     end
 
