@@ -14,29 +14,54 @@
  *= require_self
  */
 
- 
- .container {
-     
-     margin: 2em;
-     grid-template-columns: 100%;
-    }
-    
-.header {
+main {
     display: grid;
-    grid-template-columns: repeat(3, 33%);
-    grid-template-areas: "nav empty user_nav";
+    grid-template-areas:
+    'header header header header header header'
+    'body body body body right right'
+    'footer footer footer footer footer footer';
+    grid-gap: 10px;
+    background-color: lightslategray;
+    padding: 55px;
+}
+
+header {
+    grid-area: header;
+    background-color: coral;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 'nav logo user-nav';
+    
+}
+
+.content {
+    grid-area: body;
+    background-color: yellow;
+    justify-items: center;
+    align-items: center;
+}
+
+.right_content {
+    grid-area: right;
+    background-color: purple;
+    justify-items: center;
+}
+
+
+footer {
+    grid-area: footer;
+    background-color: pink;
+    
 }
 
 .nav {
     grid-area: nav;
 }
 
+.logo {
+    grid-area: logo;
+}
+
 .user_nav {
-    grid-area: user_nav;
+    grid-area: user-nav;
 }
-
-.body {
-    display: grid;
-}
-
-
