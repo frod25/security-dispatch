@@ -1,15 +1,35 @@
 
 <ol>
 <% @dispatches.each do |dispatch| %>
-    <% if dispatch.url == nil %>       
-       <li><h4><%= link_to dispatch.title, dispatch_path(dispatch) %></h4></li>
-    <% else %>
-        <li><h4><%= link_to dispatch.title, dispatch.url %></h4></li>
-    <% end %> 
-    <% if logged_in? %>
-        <%= button_to "upvote (#{dispatch.upvotes})", upvote_path(dispatch), method: "post" %>
-        <%= button_to "downvote (#{dispatch.downvotes})", downvote_path(dispatch), method: "post" %>
-    <% end %>
-    <p><%= pluralize(dispatch.points, 'point') %> posted by: <%= link_to dispatch.user.username, user_path(dispatch.user) %></p>
+    <div class="dispatch_box">
+
+        <div class="dispatch_link">
+            <% if dispatch.url == nil %>       
+                <li><h4><%= link_to dispatch.title, dispatch_path(dispatch) %></h4></li>
+            <% else %>
+                <li><h4><%= link_to dispatch.title, dispatch.url %></h4></li>
+            <% end %> 
+        </div>
+
+        <div class="dispatch_voting">
+            <% if logged_in? %>
+                <%= button_to "upvote (#{dispatch.upvotes})", upvote_path(dispatch), method: "post" %>
+                <%= button_to "downvote (#{dispatch.downvotes})", downvote_path(dispatch), method: "post" %>
+            <% end %>
+        </div>
+
+        <div class="dispatch_points">
+            <p><%= pluralize(dispatch.points, 'point') %></p>
+        </div>
+
+        <div class="dispatch_user">
+            <p>posted by: <%= link_to dispatch.user.username, user_path(dispatch.user) %></p>
+        </div>
+
+        <div class="dispatch_comments">
+            <p><%= link_to pluralize(dispatch.comments.count, 'comment'), dispatch_path(dispatch) %></p>
+        </div>
+
+    </div>
 <% end %>
 </ol>

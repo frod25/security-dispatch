@@ -18,16 +18,34 @@ main {
     display: grid;
     grid-template-areas:
     'header header header header header header'
-    'body body body body right right'
+    'content content content content content content'
     'footer footer footer footer footer footer';
-    grid-gap: 10px;
-    background-color: lightslategray;
-    padding: 55px;
+    grid-gap: ;
+    background-color: black;
+    padding: 5px 20%;
+    margin: auto;
+    margin-bottom: 0;
+    justify-items: auto;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+}
+
+h1, h2 {
+    font-family: 'MuseoModerno', cursive;
+    font-weight: regular;
+}
+
+h3, h4, h5 {
+    font-size: medium;
 }
 
 header {
     grid-area: header;
-    background-color: coral;
+    background-color: lightslategray;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 'nav logo user-nav';
@@ -35,24 +53,26 @@ header {
 }
 
 .content {
-    grid-area: body;
-    background-color: yellow;
+    grid-area: content;
+    background-color: lightgrey;
     justify-items: center;
     align-items: center;
 }
 
-.right_content {
-    grid-area: right;
-    background-color: purple;
-    justify-items: center;
-}
-
-
 footer {
     grid-area: footer;
-    background-color: pink;
+    background-color: lightslategray;
     
 }
+
+ul > li {
+    list-style: none;
+    display: inline-block;
+}
+
+/* li {
+    display: inline-block;
+} */
 
 .nav {
     grid-area: nav;
@@ -65,3 +85,48 @@ footer {
 .user_nav {
     grid-area: user-nav;
 }
+
+.dispatch_box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    'title title title title'
+    'voting points user-link comment-link';
+}
+
+.dispatch_link {
+    grid-area: title;
+}
+
+.dispatch_voting{
+    grid-area: voting;
+    font-size: smaller;
+}
+
+.dispatch_points{
+    grid-area: points;
+    font-size: smaller;
+}
+
+.dispatch_user{
+    grid-area: user-link;
+    font-size: smaller;
+}
+
+.dispatch_comments{
+    grid-area: comment-link;
+    font-size: smaller;
+}
+
+.btn {
+    background-color: lightgreen;
+    border: none;
+    color: black;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: darkgreen;
+  }

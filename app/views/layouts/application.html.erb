@@ -7,28 +7,24 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100;200;300;400;500;600;700;800;900&family=Odibee+Sans&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   
   <body>
     <main>
   
-    <header>
-      <p>header section</p>
-      <%= render "shared/navbar" %>
-    </header>
-       
-    <section class="content">
-      <p>content section</p>
-      <%= yield %>
-    </section>
-
-    <section class="right_content">
-      <p>right content section</p>
-    </section>
-      
-    <footer>
-      <p>footer section</p>
-    </footer>
+      <header>
+        <%= render "shared/navbar" %>
+      </header>
+        
+      <section class="content">
+        <%= yield %>
+      </section>
+        
+      <footer>
+        <p>footer section</p>
+      </footer>
 
     </main>
     
