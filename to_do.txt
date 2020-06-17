@@ -1,0 +1,35 @@
+css classes
+
+
+.dispatches_container
+    .dispatch_box
+        .dispatch_link
+        .upvote
+        .downvote
+        .username_link
+
+
+.navbar
+    .nav_link
+    .user_nav_link
+
+.comments_container
+    .comment_text
+
+.username_link
+.submit_buttom
+.url
+
+ol
+li
+h1
+h2
+h3
+h4
+h5
+p
+
+header
+nav
+body
+footer
