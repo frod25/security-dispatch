@@ -19,27 +19,27 @@ jack = User.create(username: "jack" , email: "jack@example.com", password: "1234
 rei = User.create(username: "rei" , email: "rei@example.com", password: "12345678", password_confirmation: "12345678", age: Faker::Number.number(digits: 2), location: Faker::Address.city)
 
 2.times do
-    Dispatch.create(title: Faker::Hacker.adjective + " " + Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, user_id: Faker::Number.between(from: 1, to: 4))
+    Dispatch.create(title: Faker::Movies::VForVendetta.quote, description: Faker::Hacker.say_something_smart, user_id: Faker::Number.between(from: 1, to: 4))
 end
 
 2.times do
-    Dispatch.create(title: Faker::Hacker.adjective + " " + Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, url: "https://example.com", user_id: Faker::Number.between(from: 1, to: 4))
+    Dispatch.create(title: Faker::Movies::VForVendetta.quote, description: Faker::Hacker.say_something_smart, url: "https://example.com", user_id: Faker::Number.between(from: 1, to: 4))
 end
 
 2.times do
-    Dispatch.create(title: Faker::Hacker.adjective + " " + Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, user_id: Faker::Number.between(from: 1, to: 4))
+    Dispatch.create(title: Faker::Movies::VForVendetta.quote, description: Faker::Hacker.say_something_smart, user_id: Faker::Number.between(from: 1, to: 4))
 end
 
 2.times do
-    Dispatch.create(title: Faker::Hacker.adjective + " " + Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, url: "https://example.com", user_id: Faker::Number.between(from: 1, to: 4))
+    Dispatch.create(title: Faker::Movies::VForVendetta.quote, description: Faker::Hacker.say_something_smart, url: "https://example.com", user_id: Faker::Number.between(from: 1, to: 4))
 end
 
 2.times do
-    Dispatch.create(title: Faker::Hacker.adjective + " " + Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, user_id: Faker::Number.between(from: 1, to: 4))
+    Dispatch.create(title: Faker::Movies::VForVendetta.quote, description: Faker::Hacker.say_something_smart, user_id: Faker::Number.between(from: 1, to: 4))
 end
 
 2.times do
-    Dispatch.create(title: Faker::Hacker.adjective + " " + Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, url: "https://example.com", user_id: Faker::Number.between(from: 1, to: 4))
+    Dispatch.create(title: Faker::Movies::VForVendetta.quote, description: Faker::Hacker.say_something_smart, url: "https://example.com", user_id: Faker::Number.between(from: 1, to: 4))
 end
 
 25.times do
