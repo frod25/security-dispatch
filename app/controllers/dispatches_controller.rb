@@ -79,7 +79,7 @@ class DispatchesController < ApplicationController
         dispatch.calc_score
         redirect_to root_path
     end
-
+    
     private
     def dispatch_params
         params.require(:dispatch).permit(:title, :description, :url, :user_id)

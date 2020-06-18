@@ -13,8 +13,10 @@
 
         <div class="dispatch_voting">
             <% if logged_in? %>
-                <%= button_to "upvote (#{dispatch.upvotes})", upvote_path(dispatch), method: "post" %>
-                <%= button_to "downvote (#{dispatch.downvotes})", downvote_path(dispatch), method: "post" %>
+            <ul>
+                <li><%= button_to "⬆ #{dispatch.upvotes}", upvote_path(dispatch), {method: "post", class: "btn"} %></li>
+                <li><%= button_to "⬇ #{dispatch.downvotes}", downvote_path(dispatch), {method: "post", class: "btn"} %></li>
+            </ul>    
             <% end %>
         </div>
 
@@ -31,5 +33,6 @@
         </div>
 
     </div>
+    <hr>
 <% end %>
 </ol>

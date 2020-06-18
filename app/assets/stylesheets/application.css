@@ -21,7 +21,7 @@ main {
     'content content content content content content'
     'footer footer footer footer footer footer';
     grid-gap: ;
-    background-color: black;
+    background-color: white;
     padding: 5px 20%;
     margin: auto;
     margin-bottom: 0;
@@ -31,11 +31,11 @@ main {
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: black;
+    background-color: white;
 }
 
 h1, h2 {
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Roboto', cursive;
     font-weight: regular;
 }
 
@@ -90,8 +90,9 @@ ul > li {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-    'title title title title'
+    'voting title title title'
     'voting points user-link comment-link';
+    align-items: center;
 }
 
 .dispatch_link {
@@ -101,6 +102,7 @@ ul > li {
 .dispatch_voting{
     grid-area: voting;
     font-size: smaller;
+    
 }
 
 .dispatch_points{
@@ -119,14 +121,11 @@ ul > li {
 }
 
 .btn {
-    background-color: lightgreen;
+    background: transparent;
+    display: block;
     border: none;
-    color: black;
-    padding: 12px 16px;
-    font-size: 16px;
-    cursor: pointer;
   }
 
   .btn:hover {
-    background-color: darkgreen;
+    background-color: gray;
   }
